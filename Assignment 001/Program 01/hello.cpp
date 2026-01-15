@@ -25,6 +25,7 @@ int main() {
     cout << "Level Order: ";
     queue<Node*> q;
     q.push(root);
+    // Level-order traversal visits each node once: O(n)
     while (!q.empty()) {
         Node* temp = q.front();
         q.pop();
@@ -39,6 +40,7 @@ int main() {
     Node* stack[100];
     int top = -1;
     Node* curr = root;
+    // Iterative in-order also touches each node once: O(n)
     while (curr || top >= 0) {
         while (curr) {
             stack[++top] = curr;

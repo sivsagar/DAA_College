@@ -1,29 +1,45 @@
-/*Find the no. off words in a given sentence*/
 #include <iostream>
-using namespace std;
+#include <string>
+using namespace std; 
 
-int countWords(const string& sentence) {
-    int count = 0;
-    bool inWord = false;
+int countWords(string sentence) { 
 
-    for (char ch : sentence) {
-        if (ch == ' ' || ch == '\n' || ch == '\t') {
-            inWord = false;
-        } else {
-            if (!inWord) {
-                count++;
-                inWord = true;
-            }
-        }
-    }
-    return count;
-}
+int count = 0;                 // 1 
+int i = 0;                     // 1 
+bool inWord = false;           // 1 
+ 
+while (sentence[i] != '\0') {  // (n + 1) 
+ 
+   if (sentence[i] == ' ' ||  // n 
+       sentence[i] == '\n' || // n 
+       sentence[i] == '\t') { // n 
+       inWord = false;        // n 
+   } 
+   else { 
+       if (inWord == false) { // n 
+           count++;           // n 
+           inWord = true;     // n 
+       } 
+   } 
+   i++;                        // n 
+} 
+ 
+return count;                  // 1 
+ 
 
-int main() {
-    string sentence;
-    cout << "Enter a sentence: ";
-    getline(cin, sentence);
-    int wordCount = countWords(sentence);
-    cout << "Number of words: " << wordCount << endl;
-    return 0;
-}
+} 
+
+int main() { 
+
+string sentence;               // 1 
+ 
+cout << "Enter a sentence: ";  // 1 
+getline(cin, sentence);        // 1 (input only) 
+ 
+cout << "Number of words: " 
+    << countWords(sentence) << endl; // 1 
+ 
+return 0;                      // 1 
+ 
+
+} 

@@ -24,6 +24,7 @@ void printLevelOrder(Node* root) {
     }
     queue<Node*> q;
     q.push(root);
+    // Breadth-first traversal visits each node once: O(n)
     while (!q.empty()) {
         Node* temp = q.front();
         q.pop();
@@ -39,6 +40,7 @@ void printInOrder(Node* root) {
     Node* stack[100];
     int top = -1;
     Node* curr = root;
+    // Iterative in-order visits each node once: O(n)
     while (curr || top >= 0) {
         while (curr) {
             stack[++top] = curr;
@@ -53,6 +55,7 @@ void printInOrder(Node* root) {
 
 Node* minValueNode(Node* node) {
     Node* current = node;
+    // Walk to leftmost node: O(h) where h is tree height
     while (current && current->left != nullptr) {
         current = current->left;
     }
