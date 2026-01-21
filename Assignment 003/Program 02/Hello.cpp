@@ -52,3 +52,22 @@ int main() {
 // Average Case: O(log n) - frequency count method
 // Worst Case: O(log n) - element not found or at end
 // Space Complexity: O(1) - no extra space used
+
+// FREQUENCY COUNT METHOD (Iterative):
+// Let f(n) = number of comparisons for n elements
+// Each iteration eliminates half the search space
+// f(n) = 1 + f(n/2)
+// f(n) = 1 + 1 + f(n/4) = 2 + f(n/4)
+// f(n) = 1 + 1 + ... + 1 (k times) where 2^k = n
+// f(n) = k = log₂(n)
+// Therefore: T(n) = O(log n)
+
+// SUBSTITUTION METHOD (Iterative):
+// Recurrence Relation: T(n) = T(n/2) + 1, with T(1) = 1
+// Assume T(n) = O(log n)
+// Proof by induction:
+// Base case: T(1) = 1 = log₂(1) + 1 
+// Inductive step: Assume T(n/2) = log₂(n/2) + 1
+// T(n) = T(n/2) + 1 = log₂(n/2) + 1 + 1 = log₂(n) - log₂(2) + 2
+//      = log₂(n) - 1 + 2 = log₂(n) + 1
+// Therefore: T(n) = O(log n) 
