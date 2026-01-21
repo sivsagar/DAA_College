@@ -5,7 +5,7 @@ using namespace std;
 int countWords(string sentence) { 
 
 int count = 0;                 // 1 
-int i = 0;                     // 1 
+int i = 0;               d      // 1 
 bool inWord = false;           // 1 
  
 while (sentence[i] != '\0') {  // (n + 1) 
