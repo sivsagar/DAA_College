@@ -47,11 +47,6 @@ int main() {
     return 0;
 }
 
-// TIME COMPLEXITY ANALYSIS (Iterative):
-// Best Case: O(1) - element found at first comparison
-// Average Case: O(log n) - frequency count method
-// Worst Case: O(log n) - element not found or at end
-// Space Complexity: O(1) - no extra space used
 
 // FREQUENCY COUNT METHOD (Iterative):
 // Let f(n) = number of comparisons for n elements
