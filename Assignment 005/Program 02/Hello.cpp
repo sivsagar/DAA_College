@@ -4,40 +4,40 @@
 
 using namespace std;
 
-void insertionSort(int arr[], int n) {
-	for (int i = 1; i < n; ++i) {
-		int key = arr[i];
-		int j = i - 1;
-		while (j >= 0 && arr[j] > key) {
-			arr[j + 1] = arr[j];
-			--j;
+void insertionSort(int arr[], int n) {                   // O(1)
+	for (int i = 1; i < n; ++i) {                        // O(n) - runs n-1 times
+		int key = arr[i];                                // O(1) per iteration
+		int j = i - 1;                                   // O(1) per iteration
+		while (j >= 0 && arr[j] > key) {                 // O(i) worst case - runs up to i times
+			arr[j + 1] = arr[j];                         // O(1) per inner iteration
+			--j;                                         // O(1) per inner iteration
 		}
-		arr[j + 1] = key;
+		arr[j + 1] = key;                                // O(1) per iteration
 	}
-}
+}                                                        // Total: O(n^2) worst case, O(n) best case
 
 int main() {
-	int n;
-	cout << "Enter number of elements: ";
-	if (!(cin >> n) || n < 0) {
-		return 0;
+	int n;                                               // O(1)
+	cout << "Enter number of elements: ";               // O(1)
+	if (!(cin >> n) || n < 0) {                         // O(1)
+		return 0;                                        // O(1)
 	}
 
-	int *arr = new int[n];
-	cout << "Enter elements: ";
-	for (int i = 0; i < n; ++i) {
-		cin >> arr[i];
+	int *arr = new int[n];                               // O(n) - memory allocation
+	cout << "Enter elements: ";                          // O(1)
+	for (int i = 0; i < n; ++i) {                        // O(n) - runs n times
+		cin >> arr[i];                                   // O(1) per iteration
 	}
 
-	insertionSort(arr, n);
+	insertionSort(arr, n);                               // O(n^2) worst case
 
-	cout << "Sorted array: ";
-	for (int i = 0; i < n; ++i) {
-		cout << arr[i] << (i + 1 == n ? '\n' : ' ');
+	cout << "Sorted array: ";                            // O(1)
+	for (int i = 0; i < n; ++i) {                        // O(n) - runs n times
+		cout << arr[i] << (i + 1 == n ? '\n' : ' ');    // O(1) per iteration
 	}
 
-	delete[] arr;
-	return 0;
+	delete[] arr;                                        // O(n) - memory deallocation
+	return 0;                                            // O(1)
 }
 
 /*

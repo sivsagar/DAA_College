@@ -4,44 +4,44 @@
 
 using namespace std;
 
-void selectionSort(int arr[], int n) {
-	for (int i = 0; i < n - 1; ++i) {
-		int minIndex = i;
-		for (int j = i + 1; j < n; ++j) {
-			if (arr[j] < arr[minIndex]) {
-				minIndex = j;
+void selectionSort(int arr[], int n) {                   // O(1)
+	for (int i = 0; i < n - 1; ++i) {                    // O(n) - runs n-1 times
+		int minIndex = i;                                // O(1) per iteration
+		for (int j = i + 1; j < n; ++j) {                // O(n-i) - runs n-i-1 times for each i
+			if (arr[j] < arr[minIndex]) {                // O(1) per inner iteration
+				minIndex = j;                            // O(1) per inner iteration
 			}
 		}
-		if (minIndex != i) {
-			int temp = arr[i];
-			arr[i] = arr[minIndex];
-			arr[minIndex] = temp;
+		if (minIndex != i) {                             // O(1) per iteration
+			int temp = arr[i];                           // O(1) per iteration
+			arr[i] = arr[minIndex];                      // O(1) per iteration
+			arr[minIndex] = temp;                        // O(1) per iteration
 		}
 	}
-}
+}                                                        // Total: O(n^2)
 
 int main() {
-	int n;
-	cout << "Enter number of elements: ";
-	if (!(cin >> n) || n < 0) {
-		return 0;
+	int n;                                               // O(1)
+	cout << "Enter number of elements: ";               // O(1)
+	if (!(cin >> n) || n < 0) {                         // O(1)
+		return 0;                                        // O(1)
 	}
 
-	int *arr = new int[n];
-	cout << "Enter elements: ";
-	for (int i = 0; i < n; ++i) {
-		cin >> arr[i];
+	int *arr = new int[n];                               // O(n) - memory allocation
+	cout << "Enter elements: ";                          // O(1)
+	for (int i = 0; i < n; ++i) {                        // O(n) - runs n times
+		cin >> arr[i];                                   // O(1) per iteration
 	}
 
-	selectionSort(arr, n);
+	selectionSort(arr, n);                               // O(n^2)
 
-	cout << "Sorted array: ";
-	for (int i = 0; i < n; ++i) {
-		cout << arr[i] << (i + 1 == n ? '\n' : ' ');
+	cout << "Sorted array: ";                            // O(1)
+	for (int i = 0; i < n; ++i) {                        // O(n) - runs n times
+		cout << arr[i] << (i + 1 == n ? '\n' : ' ');    // O(1) per iteration
 	}
 
-	delete[] arr;
-	return 0;
+	delete[] arr;                                        // O(n) - memory deallocation
+	return 0;                                            // O(1)
 }
 
 /*
